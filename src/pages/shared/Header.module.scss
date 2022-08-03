@@ -1,0 +1,32 @@
+@import './src/styles/variables';
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.changeTheme, .logo {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.logo {
+  svg {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 25px;
+  color: $primary-color
+}
