@@ -8,6 +8,12 @@
   background: var(#{--components-background-default});
   box-shadow: $box-shadow;
   border-radius: $border-radius;
+  &:hover {
+    .cloudImage{
+      transition: 1s ease-out;
+      right: -20%;
+    }
+  }
 }
 
 .item {

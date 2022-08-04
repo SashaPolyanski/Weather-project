@@ -12,6 +12,7 @@ import { ThisDayInfo } from './thisDayInfo/ThisDayInfo';
 
 export const Home = () => {
   const dispatch = useCustomDispatch();
+  const city = useCustomSelector(state => state.currentWeatherSliceReducer.cityInfo.name);
   const { lat, lon } = useCustomSelector(
     state => state.currentWeatherSliceReducer.cityInfo,
   );
@@ -20,8 +21,8 @@ export const Home = () => {
     cityInfo: { name },
   } = useCustomSelector(state => state.currentWeatherSliceReducer);
   useEffect(() => {
-    dispatch(fetchCurrentWeather({ lat, lon, city: 'Бишкек' }));
-  }, [lat, lon]);
+    dispatch(fetchCurrentWeather({ lat, lon, city }));
+  }, [lat, lon, city]);
 
   return (
     <div className={s.home}>
@@ -29,7 +30,7 @@ export const Home = () => {
         <ThisDay weather={weather} name={name} />
         <ThisDayInfo weather={weather} />
       </div>
-      <Days />
+      {/* <Days /> */}
     </div>
   );
 };

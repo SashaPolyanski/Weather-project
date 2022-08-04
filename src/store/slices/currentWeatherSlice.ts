@@ -16,6 +16,7 @@ export const currentWeatherSlice = createSlice({
         temp: 0,
         pressure: 0,
         feels_like: 0,
+        humidity: 0,
       },
       wind: {
         speed: 0,
@@ -56,6 +57,9 @@ export const currentWeatherSlice = createSlice({
       state.cityInfo.lat = action.payload.cityInfo.lat;
       state.cityInfo.name = action.payload.cityInfo.local_names.ru;
     },
+    setCurrentCityName(state, action: PayloadAction<{ name: string }>) {
+      state.cityInfo.name = action.payload.name;
+    },
   },
 });
 
@@ -65,5 +69,5 @@ type InitialStateType = {
   cityInfo: { lat: number; lon: number; name: string };
   response: { status: number; message: string };
 };
-export const { fetchCurrentCity } = currentWeatherSlice.actions;
+export const { setCurrentCityName } = currentWeatherSlice.actions;
 export default currentWeatherSlice.reducer;

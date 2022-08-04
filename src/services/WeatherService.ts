@@ -7,7 +7,7 @@ export class WeatherService {
   }
   static getCurrentWeather(lat: number, lon: number) {
     return instance.get<WeatherType>(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=minutely`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
     );
   }
 }

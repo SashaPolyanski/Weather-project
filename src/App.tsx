@@ -14,7 +14,7 @@ const App = () => (
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="month-statistic" element={<MonthStatistic />} />
+        {/* <Route path="month-statistic" element={<MonthStatistic />} /> */}
       </Routes>
     </div>
   </div>

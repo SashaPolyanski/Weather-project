@@ -11,17 +11,19 @@ export const ThisDayInfo = ({ weather }: PropsType) => {
     {
       iconId: 'temp',
       name: 'Температура',
-      value: '20° - ощущается как 17°',
+      value: `${Math.floor(weather.main.temp)}° - ощущается как ${Math.floor(
+        weather.main.feels_like,
+      )}°`,
     },
     {
       iconId: 'pressure',
       name: 'Давление',
-      value: '765 мм ртутного столба - нормальное',
+      value: `${weather.main.pressure} мм ртутного столба - нормальное`,
     },
     {
       iconId: 'precipitation',
-      name: 'Осадки',
-      value: 'Без осадков',
+      name: 'Влажность',
+      value: `${weather.main.humidity} %`,
     },
     {
       iconId: 'wind',
