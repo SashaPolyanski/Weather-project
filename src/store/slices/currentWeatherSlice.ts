@@ -6,7 +6,21 @@ import { WeatherType } from '../types/types';
 export const currentWeatherSlice = createSlice({
   name: 'currentWeather',
   initialState: {
-    weather: {},
+    cityInfo: {
+      lat: 0,
+      lon: 0,
+      name: '',
+    },
+    weather: {
+      main: {
+        temp: 0,
+        pressure: 0,
+        feels_like: 0,
+      },
+      wind: {
+        speed: 0,
+      },
+    },
     isLoading: false,
     response: {
       status: 0,
@@ -32,13 +46,24 @@ export const currentWeatherSlice = createSlice({
         message: action.payload.statusText,
       };
     },
+    fetchCurrentCity(
+      state,
+      action: PayloadAction<{
+        cityInfo: { lat: number; lon: number; local_names: { ru: string } };
+      }>,
+    ) {
+      state.cityInfo.lon = action.payload.cityInfo.lon;
+      state.cityInfo.lat = action.payload.cityInfo.lat;
+      state.cityInfo.name = action.payload.cityInfo.local_names.ru;
+    },
   },
 });
 
 type InitialStateType = {
   weather: WeatherType;
   isLoading: boolean;
+  cityInfo: { lat: number; lon: number; name: string };
   response: { status: number; message: string };
 };
-
+export const { fetchCurrentCity } = currentWeatherSlice.actions;
 export default currentWeatherSlice.reducer;

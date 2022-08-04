@@ -48,9 +48,9 @@ export const Popup = () => {
         </div>
         <div className={s.thisDayInfo}>
           <div className={s.thisDayInfoItems}>
-            {items.map((item: ItemType) => (
-              <ThisDayItem item={item} key={item.iconId} />
-            ))}
+            {/*{items.map((item: ItemType) => (*/}
+            {/*  <ThisDayItem item={item} key={item.iconId} />*/}
+            {/*))}*/}
           </div>
         </div>
         <div className={s.close}>

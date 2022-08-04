@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { IndicatorSvgSelector } from '../../../../assets/icons/indicators/IndicatorSvgSelector';
+import { WeatherType } from '../../../../store/types/types';
 
 import { ItemType } from './ThisDayInfo';
 import s from './ThisDayInfo.module.scss';
 
-export const ThisDayItem = ({ item }: ThisDayItemPropsType) => {
+export const ThisDayItem = ({ item, weather }: ThisDayItemPropsType) => {
   const { iconId, name, value } = item;
   return (
     <div className={s.item}>
@@ -20,4 +21,5 @@ export const ThisDayItem = ({ item }: ThisDayItemPropsType) => {
 
 type ThisDayItemPropsType = {
   item: ItemType;
+  weather: WeatherType;
 };

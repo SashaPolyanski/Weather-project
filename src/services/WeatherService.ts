@@ -1,10 +1,13 @@
-import axios, { AxiosResponse } from 'axios';
-
 import { instance } from '../axios';
-import { WeatherType } from '../store/types/types';
+import { CityType, WeatherType } from '../store/types/types';
 
 export class WeatherService {
-  static getCurrentWeather(city: string): Promise<AxiosResponse<WeatherType>> {
-    return instance.get<WeatherType>(`direct?q=${city}&limit=1`);
+  static getCurrentCityInfo(city: string) {
+    return instance.get<CityType[]>(`direct?q=${city}&limit=1`).then(res => res.data[0]);
+  }
+  static getCurrentWeather(lat: number, lon: number) {
+    return instance.get<WeatherType>(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=minutely`,
+    );
   }
 }

@@ -6,6 +6,6 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(config => {
   console.log({ config });
-  config.url = `${config.url}&appid=${process.env.REACT_APP_API_KEY}`;
+  config.url = `${config.url}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
   return config;
 });

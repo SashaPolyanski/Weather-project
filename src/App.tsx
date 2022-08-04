@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Home } from './pages/home/components/Home';
 import { MonthStatistic } from './pages/monthStatistics/MonthStatistic';
 import { Header } from './pages/shared/Header';
+import { Popup } from './pages/shared/popUp/Popup';
 
 const App = () => (
   <div className="globalContainer">
